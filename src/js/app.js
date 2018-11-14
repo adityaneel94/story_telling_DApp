@@ -49,13 +49,15 @@ App = {
 			return storyInstance;
 		}).then(function(storyInstance) {
 			var finalStory = $("#finalStory");
-			finalStory.empty();
+			// finalStory.empty();
 
 			storyInstance.allStories().then(function(res){
-				// finalStory.innerHTML = res;
-				finalStory.html(res);
-				console.log(res);
-				alert(res);
+				res = res.split("#");
+				tableEle = document.getElementById('storyTable');
+				tableEle.style.display = "block";
+				for (var i = 0; i < res.length; i++) {
+					tableEle.innerHTML += ("<tr><td>"+res[i]+"</td></tr>");
+				}
 			});
 		});
 	},
