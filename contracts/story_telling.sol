@@ -78,11 +78,11 @@ contract story_telling{
 					wholeStory = temp;
 					curID = idToNode[curID].parentId;
 				}
+				wholeStory = wholeStory.toSlice().concat(" # ".toSlice());
 				if(idToNode[nodeID].lenTillNode == maxLen)
 					allStories = wholeStory.toSlice().concat(allStories.toSlice());
 				else
 					allStories = allStories.toSlice().concat(wholeStory.toSlice());
-				allStories = allStories.toSlice().concat(" # ".toSlice());
 			}
 		}
 	}
